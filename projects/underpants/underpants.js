@@ -193,6 +193,7 @@ _.each = function (collection, action) {
 */
 
 
+
 /** _.filter
 * Arguments:
 *   1) An array
@@ -208,6 +209,23 @@ _.each = function (collection, action) {
 * Extra Credit:
 *   use _.each in your implementation
 */
+
+_.filter= function(array, func) {
+    let elementArray = [];
+    
+    // for (let i = 0; i < array.length; i++) {
+    //     if (func(array[i], i, array)) {
+    //         elementArray.push(array[i]);
+    //     }
+    // }
+    _.each(array, function(currentValue, index, array) {
+        let result = func(currentValue, index, array)
+        if (result === true) {
+            elementArray.push(currentValue)
+        }
+    });
+    return elementArray;
+};
 
 
 /** _.reject
